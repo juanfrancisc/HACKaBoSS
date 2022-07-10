@@ -7,5 +7,111 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>
+        Debrable
+      </h1>
+      <nav>
+        <menu>
+          <li>
+            <a href="#miTop">Mi TOP 10 peiculas</a>
+          </li>
+          <li>
+            <a href="#miViaje">Mi viaje a Japón</a>
+          </li>
+          <li>
+            <a href="#mensaje">Mándame un mensaje</a>
+          </li>       
+        </menu>
+      </nav>
+    </header>
+    <main>
+      <section id="miTop">
+        <h2>
+          Mi TOP 10 peiculas
+        </h2>
+        <ol>
+          <li>
+            El padrino
+          </li>
+          <li>
+            La lista de Schindler
+          </li>
+          <li>
+            El padrino. Parte II
+          </li>
+          <li>
+            Cadena perpetua
+          </li>
+          <li>
+            Pulp Fiction
+          </li>
+          <li>
+            El Rey León
+          </li>
+          <li>
+            Forrest Gump
+          </li>
+          <li>
+            La vida es bella
+          </li>
+          <li>
+            Gladiator
+          </li>
+          <li>
+            Coco
+          </li>
+        </ol>
+      </section>
+      <section id="miViaje">
+        <h2>Mi Viaje a Japón</h2>
+        <img src="Imagenes/japon.jpg" alt="Imagen de Japón">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis hic possimus ratione tenetur! Iure possimus praesentium, dolores facilis et quam delectus earum corporis dolorem molestiae eligendi, repellat temporibus ratione asperiores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam modi doloribus pariatur culpa corrupti possimus quo aspernatur vitae alias autem vel, aliquid blanditiis officiis eveniet, quae dolore molestiae iure? Libero?</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut laboriosam, modi tenetur, nesciunt ab nostrum ut est harum animi deleniti explicabo, porro corporis repellendus necessitatibus delectus adipisci esse atque cum?</p>
+      </section>
+      <section>
+        <img src="Imagenes/perfil.png" alt="Foto de mi perfil">
+        <h2>Debra Smith</h2>
+        <p>Aqui escribo algo que se me ocurre, por poner algo</p>
+        <a href="mailto:elmaildedebra@debra.com"></a>
+      </section>
+      <section id="mensaje"></section>
+      <h2>Mámdame un mensaje</h2>
+      <form>
+        <fieldset>
+          <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" required>
+          </p>
+          <p>
+            <label for="mail">Correo electrónico</label>
+            <input type="email" name="mail" id="mail" required>
+          </p>
+          <p>
+            <label for="fecha">Fecha de nacimiento</label>
+            <input type="date" name="fecha" id="fecha" required>
+          </p>
+          <p>
+            <label for="comentarios">Comentarios</label>
+            <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+          </p>
+          <p>
+            <input type="checkbox" id="box" name="box">
+            <label for="box">Suscribirse a newsletter</label>
+          </p>
+        </fieldset>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+    <footer>
+      <p>
+        <a href="#">Térmicnos y condiciones</a>
+      </p>
+      <p>
+        <a href="#">Política de privacidad</a>
+      </p>
+    </footer>
+  </body>
 </html>
