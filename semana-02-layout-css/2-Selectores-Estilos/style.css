@@ -1,0 +1,71 @@
+/*Reseteo de posible estilo predefinidos*/
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+/*He añadido un espacion arriba y abajo para visualiza mejor el resultado*/
+body{
+    margin: 2rem;
+}
+
+/*Primera lista de ul*/
+
+ul:first-child li:last-child{
+    background-color: rgb(0, 0, 255);
+} 
+
+ul:first-child li:nth-child(odd){
+    text-decoration: underline green;
+}
+
+ul:first-child{
+    display: flex;
+    list-style: none;
+}
+
+ul:first-child li{
+    margin-left: 10px;
+}
+
+
+ul:first-child li:first-child::after{
+    content: "😀";
+}
+ul:first-child li:nth-child(2):after{
+    content: "😆";
+}
+ul:first-child li:nth-child(3):after{
+    content: "😇";
+}
+ul:first-child li:nth-child(4)::after{
+    content: "😜";
+}
+ul:first-child li:nth-child(5)::after{
+    content: "🙄";
+}
+ul:first-child li:last-child::after{
+    content: "🙃";
+}
+
+
+:lang(en){
+    font-size: 200%; /*Podria ser tambien 2em*/
+    text-transform: uppercase;
+}
+
+
+
+
+/*Segunda lista de ul*/
+ul:nth-child(2) {
+    list-style: upper-roman;
+}
+
+#provincias li:nth-child(2){
+    list-style: none;
+}
+#provincias li:nth-child(2)::after{
+    content: " II.";
+}

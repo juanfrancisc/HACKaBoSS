@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --thcolorfilapar: rgb(99, 99, 219);
+    --thcolorfilaimpar: rgb(61, 61, 134);
+    --tdcolorfilapar: rgb(64, 64, 219);
+    --tdcolorfilaimpar: rgb(35, 35, 134);
+}
+
+html {
+    font-family: sans-serif;
+
+}
+
+header{
+    background-color: rgb(111, 150, 233);   
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5rem;
+}
+
+main{
+    padding:2rem;
+}
+
+section{
+    padding: 1rem;
+}
+
+h2{
+    color:rgb(111, 150, 233);
+}
+
+
+
+li{
+    list-style: circle;
+    padding: 0.5rem;
+    margin-left: 2rem;
+}
+
+.importante{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+table{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+table, th, td {
+    border: 2px solid white;
+    border-collapse: collapse;
+    padding: 1rem;
+    
+}
+
+thead{
+    background-color: rgb(111, 150, 233);
+    color: #fff;
+}
+
+tbody tr:nth-child(odd) th:nth-child(1){
+    background-color: var(--thcolorfilaimpar);
+}
+
+tbody tr:nth-child(even) th:nth-child(1){
+    background-color: var(--thcolorfilapar);
+}
+
+tbody tr:nth-child(even){
+    background-color: var(--tdcolorfilapar);
+}
+
+tbody tr:nth-child(odd){
+    background-color:var(--tdcolorfilaimpar);
+}
+
+#descanso{
+    text-transform: uppercase;
+    align-content: center;
+    text-align: center;
+}
+
+/*Codigo Katia para los puntos de la lista*/
+/*ul.a {
+  list-style-position: outside;
+}
+
+ul.b {
+  list-style-position: inside;
+}
+*/
+
