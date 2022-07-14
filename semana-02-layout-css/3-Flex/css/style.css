@@ -1,0 +1,99 @@
+/*Resteos de los valosres de css por defecto*/
+*{
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+main{
+    background-image: url("/3-Flex/img/hamburguesa.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form{
+    height: 90vh;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+fieldset{
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+
+} 
+
+legend{
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+p{
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+ul{
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}  
+
+li{
+    padding: 1rem;
+}
+
+ul:nth-child(2){
+    color:red;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    display: inline-block;
+}
+
+ul:nth-child(2) li{
+    text-align: center;
+
+}
+
+select{
+    height: 2rem;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: black;
+    
+}
+
+button{
+    width: 5rem;
+    height: 2rem;
+    background-color: rgb(32, 32, 68);
+    color: white;
+}
+
+button:hover{
+    background-color: white;
+    color: rgb(32, 32, 68);
+    border: 2px solid rgb(32, 32, 68)
+}

@@ -29,7 +29,6 @@ ul:first-child li{
     margin-left: 10px;
 }
 
-
 ul:first-child li:first-child::after{
     content: "😀";
 }

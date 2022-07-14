@@ -8,5 +8,86 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
 
-  <body></body>
+  <body>
+
+    <main>
+      <form>
+        <fieldset>
+          <legend>Personaliza tu hamburguesa</legend>
+          <p>Ingredientes</p>
+          <ul>
+            <li>
+              <label for="queso">Queso</label>
+              <input type="checkbox" name="queso" id="queso">
+            </li>
+            <li>
+              <label for="pimiento">Pimiento</label>
+              <input type="checkbox" name="pimiento" id="pimiento">
+            </li>
+            <li>
+              <label for="cebolla">Cebolla</label>
+              <input type="checkbox" name="cebolla" id="cebolla">
+            </li>
+            <li>
+              <label for="jamon">Jamón</label>
+              <input type="checkbox" name="jamon" id="jamon">
+            </li>
+            <li>
+              <label for="huevo">Huevo</label>
+              <input type="checkbox" name="huevo" id="huevo">
+            </li>
+          </ul>
+          <p>Tamaño</p>
+          <ul>
+            <li>
+              <label for="pequena">Pequeña</label>
+              <input type="radio" name="tipo" id="pequena" value="pequena">
+            </li>
+            <li>
+              <label for="medinana">Mediana</label>
+              <input type="radio" name="tipo" id="medinana" value="medinana">
+            </li>
+            <li>
+              <label for="grande">Grande</label>
+              <input type="radio" name="tipo" id="grande" value="grande"> 
+            </li>
+          </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Datos de entrega</legend>
+          <ul>
+            <li>
+              <label for="nombre">Nombre</label>
+              <input type="text" name="nombre" id="nombre">
+            </li>
+            <li>
+              <label for="direccion">Dirección</label>
+              <input type="text" name="direccion" id="direccion">
+            </li>
+            <li>
+              <label for="tel">Teléfono</label>
+              <input type="tel" name="tel" id="tel">
+            </li>
+            <li>
+              <label for="obs">Instrucciones especiales</label>
+              <textarea name="obs" id="obs" cols="30" rows="10"></textarea>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset>
+          <legend>Método de pago</legend>
+          <select name="pago" id="pago" size="1" required>
+            <option value="">Selecciona una opción</option>
+            <option value="tarjeta">Tarjeta de crédito</option>
+            <option value="efectivo">Pago en efectivo</option>
+            <option value="bizum">Pago a través de Bizum</option>
+          </select>
+
+        </fieldset>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+
+  </body>
 </html>
