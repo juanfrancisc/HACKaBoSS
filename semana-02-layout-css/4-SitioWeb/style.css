@@ -6,7 +6,7 @@
 
 html{
     background-color: rgb(164, 238, 238);
-}
+} 
 
 header{
     color: magenta;
@@ -31,32 +31,51 @@ a{
     text-decoration: none;
 }
 
-section:first-child{
-    /* background-color: red; */
-    width: 49%;
-    height: 100vh;
+main{
     display: flex;
-    align-items: center;
-    justify-content: right;
-    margin-right: 1rem;
-    float: left;
-
-}
-section:last-child{
-    /* background-color: black; */
-    width: 49%;
+    flex-direction: row;
     height: 100vh;
-    float: right;
+}
+
+section:first-child{
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-
+    align-content: center;
+    margin-left: 1rem;
+    margin-right: 3rem;
 }
 
-img{
+section:nth-child(2){
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
 
+.titulo{
+    color:red;
+}
+
+figure{
+    display: flex;
+    justify-content: end;
+}
+
+img:first-child{
     border-radius: 50%;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
 }
 
 p{
@@ -64,6 +83,55 @@ p{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+
+ /* misproyectos */
+.noindex {
+    display:grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.titulo{
+    width: 100%;
+    align-items: center;
+}
+
+h2 { 
+    width: 100%;
+    text-align: start;
+}
+
+.htmlycss{
+    background-color: blue ;
+}
+
+.sectionHTML{
+    background-color: brown;
+    display: flex; 
+    align-items: stretch;
+}
+
+article{
+    margin: 1rem 1rem;
+    background-color: white;
+    border-radius: 1rem;
+}
+
+
+.icon{
+    width:100px;
+    height:100px;
+    margin:0 auto;
+}
+
+
+
+img {
+    width: 50%;
+}
+
+
+
 
 footer{
     position: absolute;

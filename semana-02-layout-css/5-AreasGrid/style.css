@@ -1,0 +1,80 @@
+/*Reseteo de los valos de css por defecto*/
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: rgb(112, 109, 109);
+    color: black;
+    display: block;
+    text-align: center;
+    height: 10vh;
+}
+
+main{
+    height: 90vh;
+    display: grid;
+    grid-template-areas: 
+    "seccion1 seccion1 seccion1"
+    "seccion2 seccion2 seccion2"
+    "seccion3 seccion4 seccion4";
+}
+
+section:nth-child(1){
+    background: pink;
+    grid-area: seccion1;
+}
+
+section:nth-child(2){
+    background: pink;
+    grid-area: seccion2;
+}
+
+section:nth-child(3){
+    background: rgb(86, 235, 240);
+    grid-area: seccion3;
+}
+
+section:nth-child(4){
+    background: rgb(164, 139, 235);
+    grid-area: seccion4;
+}
+
+h3{
+    margin-left: 1rem;
+}
+
+section:nth-child(4) p:nth-child(1){
+    font-size: 2rem;
+}
+
+p{
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+img{
+    display: none;
+}
+
+
+@media (min-width: 600px){
+    main{
+        grid-template-columns: (1fr, 1fr, 1fr, 1fr, 1fr);
+        grid-template-areas: 
+        "seccion1 seccion1 seccion2 seccion2 seccion4"
+        /* "seccion1 seccion1 seccion2 seccion2 seccion4" */
+        "seccion3 seccion3 seccion3 seccion3 seccion4";
+    }
+
+    img {
+        display: block;
+        align-content: center;
+        width: 80%;
+        border-radius: 50%;
+    }
+
+    }
