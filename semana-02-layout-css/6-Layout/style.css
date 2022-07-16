@@ -1,2 +1,59 @@
 @import url(./base.css);
 
+header {
+    padding: 1rem;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 10rem;
+    overflow: hidden;
+}
+
+header form{
+    margin-top: 1rem;
+}
+
+header menu{
+    /* background-color: blue; */
+    display: flex;
+    flex: auto;
+    margin-top: 1rem;
+}
+
+header nav menu li{
+    margin-left: 1rem;
+}
+
+nav menu{
+    height: 2rem;
+    display: flex;
+}
+
+main{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main article{
+    margin-left: min(1rem);
+    margin-top: min(1rem);
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
