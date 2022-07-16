@@ -23,4 +23,23 @@ svg {
   fill: gray;
 }
 
+@keyframes like{
+  25% {
+    transform: scale(1.2);
+    color:red;
+  }
+  50%{
+    transform: scale(0.9);
+  }
+  75%{
+    transform: scale(1.2);
+  }
+  100%{
+    fill: red;
+  }
+}
 
+.like{
+  animation: like 2s;
+  animation-fill-mode: forwards;
+}
