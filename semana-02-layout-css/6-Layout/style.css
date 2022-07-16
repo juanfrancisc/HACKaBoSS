@@ -57,3 +57,54 @@ footer a {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+
+
+@media (min-width: 600px) {
+    header{
+        /* background-color: blue; */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 5rem;
+    }
+
+    body header nav menu {
+        display: flex ; 
+        flex-direction: row ;
+    }
+
+    header nav menu li{
+        margin-left: 1rem;
+    }
+
+    body nav{
+        float: left;
+        width: 10rem;
+    }
+
+    main{
+        height: 100vh;
+        justify-content: space-around;
+    }
+
+    body nav menu{
+        display: flex;
+        flex-direction: column;
+    }
+
+    article{
+        margin-left: min(1rem);
+        margin-top: min(1rem);    
+    }
+
+    footer{
+        /* background-color: brown; */
+        height: 2rem;
+    }
+
+    footer a{
+        margin-left: 2rem;
+        }
+    }
+}
