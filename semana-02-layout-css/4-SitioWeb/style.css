@@ -48,7 +48,7 @@ a{
 } 
 
 .perfil{
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,8 +63,10 @@ figure{
     justify-content: end;
 }
 
-img:first-child{
+section figure img{
+    width: 50%;
     border-radius: 50%;
+    box-shadow: 7px 5px 20px 16px rgb(7 4 4 / 43%);
 }
 
 h1{
@@ -73,6 +75,8 @@ h1{
 
 h2{
     text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 p{
@@ -80,7 +84,6 @@ p{
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
 
  /* misproyectos */
 
@@ -90,11 +93,16 @@ p{
 }
 
 .htmlycss{
+    width: 80vw;
+    margin: auto;
     text-align: left !important;
 }
 
 .misproyectos{
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 
 }
 
@@ -102,6 +110,7 @@ article{
     margin: 1rem 1rem;
     background-color: white;
     border-radius: 1rem;
+    width: 25vw;
 }
 
 h3{
@@ -114,17 +123,35 @@ ul{
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .icon{
     width:32px;
 }
 
-img {
+section.misproyectos article img{
     width: 100%;
 }
 
-footer{
+section.misproyectos article ul li img {
+    width: 32px;
+    border-style: none;
+}
+
+
+/* contacto*/
+
+section.contacto{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+footer p{
     position: absolute;
     display: flex;
     bottom: 0;
@@ -132,4 +159,12 @@ footer{
     height: 1rem;
     margin-left: 1rem;
 }
-/* contacto /*
+
+p.misprojects {
+    position: inherit !important;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: 1rem;
+    margin-left: 1rem;
+}
