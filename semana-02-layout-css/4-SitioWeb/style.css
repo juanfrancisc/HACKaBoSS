@@ -31,13 +31,13 @@ a{
     text-decoration: none;
 }
 
-main{
+.sobremi{
     display: flex;
     flex-direction: row;
     height: 100vh;
 }
 
-section:first-child{
+.foto{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -45,9 +45,9 @@ section:first-child{
     align-content: center;
     margin-left: 1rem;
     margin-right: 3rem;
-}
+} 
 
-section:nth-child(2){
+.perfil{
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -55,11 +55,8 @@ section:nth-child(2){
     align-content: center;
     margin-left: 1rem;
     margin-right: 1rem;
-}
+} 
 
-.titulo{
-    color:red;
-}
 
 figure{
     display: flex;
@@ -86,29 +83,19 @@ p{
 
 
  /* misproyectos */
-.noindex {
-    display:grid;
-    grid-template-rows: 1fr 1fr 1fr;
-}
 
 .titulo{
     width: 100%;
     align-items: center;
 }
 
-h2 { 
-    width: 100%;
-    text-align: start;
-}
-
 .htmlycss{
-    background-color: blue ;
+    text-align: left !important;
 }
 
-.sectionHTML{
-    background-color: brown;
-    display: flex; 
-    align-items: stretch;
+.misproyectos{
+    display: flex;
+
 }
 
 article{
@@ -117,21 +104,25 @@ article{
     border-radius: 1rem;
 }
 
+h3{
+    text-align: center;
+    padding: 1rem;
+}
+
+ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
 
 .icon{
-    width:100px;
-    height:100px;
-    margin:0 auto;
+    width:32px;
 }
-
-
 
 img {
-    width: 50%;
+    width: 100%;
 }
-
-
-
 
 footer{
     position: absolute;
@@ -141,3 +132,4 @@ footer{
     height: 1rem;
     margin-left: 1rem;
 }
+/* contacto /*
