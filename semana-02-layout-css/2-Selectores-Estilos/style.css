@@ -12,24 +12,58 @@ body{
 
 /*Primera lista de ul*/
 
-ul:first-child li:last-child{
+.lista :last-child{
     background-color: rgb(0, 0, 255);
-} 
+}
 
-ul:first-child li:nth-child(odd){
+/* ul:first-child li:last-child{
+    background-color: rgb(0, 0, 255);
+}  */
+
+.lista li:nth-child(odd){
     text-decoration: underline green;
 }
 
-ul:first-child{
+/* ul:first-child li:nth-child(odd){
+    text-decoration: underline green;
+} */
+
+
+.lista li{
+    display: inline;
+    margin: 5px;
+}
+
+/* ul:first-child{
     display: flex;
     list-style: none;
-}
+} */
 
-ul:first-child li{
+/* ul:first-child li{
     margin-left: 10px;
+} */
+
+.lista :nth-child(1)::after{
+    content: "😀";
 }
 
-ul:first-child li:first-child::after{
+.lista :nth-child(2)::after{
+    content: "😆";
+}
+.lista :nth-child(3)::after{
+    content: "😇";
+}
+.lista :nth-child(4)::after{
+    content: "😜";
+}
+.lista :nth-child(5)::after{
+    content: "🙄";
+}
+.lista :nth-child(6)::after{
+    content: "🙃";
+}
+
+/* ul:first-child li:first-child::after{
     content: "😀";
 }
 ul:first-child li:nth-child(2):after{
@@ -46,18 +80,28 @@ ul:first-child li:nth-child(5)::after{
 }
 ul:first-child li:last-child::after{
     content: "🙃";
-}
+} */
 
 
-:lang(en){
-    font-size: 200%; /*Podria ser tambien 2em*/
+.lista :lang(en){
+    font-size: 200%;
     text-transform: uppercase;
 }
 
-
+/* :lang(en){
+    font-size: 200%; /*Podria ser tambien 2em*/
+    /*text-transform: uppercase;
+} */
 
 
 /*Segunda lista de ul*/
+
+#provincias li:not(:nth-child(2)){
+    list-style: upper-roman;
+}
+
+
+/*
 ul:nth-child(2) {
     list-style: upper-roman;
 }
@@ -67,4 +111,4 @@ ul:nth-child(2) {
 }
 #provincias li:nth-child(2)::after{
     content: " II.";
-}
+}*/

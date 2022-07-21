@@ -8,6 +8,12 @@ html{
     background-color: rgb(164, 238, 238);
 } 
 
+/*Codigo Zoe*/
+main{
+    width: fit-content;
+    margin: auto;
+}
+
 header{
     color: magenta;
     height: 6rem;
@@ -39,6 +45,7 @@ a{
 
 .foto{
     width: 50%;
+    object-fit: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,15 +148,15 @@ section.misproyectos article ul li img {
 
 
 /* contacto*/
-
-section.contacto{
+/*Con el codigo de Zoe no es necesario*/
+/* section.contacto{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     align-items: flex-start;
     justify-content: space-evenly;
-}
+} */
 
 footer p{
     position: absolute;
