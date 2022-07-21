@@ -1,20 +1,40 @@
 "use strict";
 
+function adivinar(){
 let pass = Math.floor(Math.random() * 100+1);
-console.log(pass);
+//console.log(pass);
 
-//const numUser = prompt("Introduce un número del 0 al 100");
-//console.log(numUser);
+//let numUser=15
+const numUser = +prompt("Introduce un número del 0 al 100");
+console.log(numUser);
 
-let intentos = 1;
-const numUser = prompt("Introduce un número del 0 al 100");
+let comprobar = numUser;
+let resultado;
 
-let numIntroducido = +numUser;
+let intentos =  1;
+console.log(intentos);
 
-while (intentos<5 && pass!==numIntroducido){
-    numIntroducido = +prompt("Intentalo de nuevo, introduce un número del 0 al 100");
-    intentos++;
+while (intentos<5){
+    if (pass < comprobar){
+        comprobar = +prompt("El número instroducido es MAYOR, introduce uno nuevo");
+        intentos ++;
+        console.log(intentos);
+    }    else if (pass > comprobar){
+        comprobar = +prompt("El número instroducido es MENOR, introduce uno nuevo");
+        intentos++;
+        console.log(intentos);
+    }else {
+        resultado = alert("Has acertado!");
+        intentos=6;
+        console.log(intentos);
+    }
     
 }
-console.log("Has sobrepasado el limite de intentos permitido");
-console.log("Has adivinado el número");
+if (intentos < 6){
+    resultado = alert("Has perdido!");
+}
+
+console.log(resultado);
+}
+
+adivinar();
