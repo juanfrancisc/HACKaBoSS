@@ -1,27 +1,15 @@
 "use strict";
 
 let resultado;
-let cucu;
+let cucu="";
 for (let i=0; i<=24; i++){
-    if (i <= 12){
-        resultado="Son las "+i+" de la mañana";
-        for (let j = 0; j < i ;j++){
-            console.log(j);
-            if (j=0){
-                cucu=""
-            }else {
-                cucu=" cucú ";
-            }
-
-        }
-        resultado=resultado+cucu;
-        console.log(resultado);
-    } else {
-        console.log("Son las "+i+" de la tarde");
-        for (let j = 0; j < i ;j++){
-            console.log("cucú");
-        }
+    if (i>0 && i<=23){
+        cucu=cucu+" cucú";
+    }else if (i===24){
+        cucu="";
     }
+    console.log(i + cucu);
 }
+    
 
-//console.log(resultado);
+
