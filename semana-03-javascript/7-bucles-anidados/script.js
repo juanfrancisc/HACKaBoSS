@@ -9,6 +9,7 @@ const catalogo = [
   "tropical",
 ];
 
+
 function combinar(array){
   let combinacion=[];
   for (let i = 0 ; i < array.length ; i++){
@@ -24,5 +25,5 @@ function combinar(array){
 
 
 
-
+//LLamamos a la funcion
 combinar(catalogo);

@@ -31,3 +31,16 @@ for (let i=8; i<=22; i++){
     console.log(i + cucus);
 }
 
+
+// Cogiendo la hora actual
+console.log("");
+console.log("Hora Actual");
+
+//Obtenemos las hora actual, para despues con .getHours() recuperar sola la hora 
+const hora= new Date();
+let otroCucu="";
+for (let i=0; i<hora.getHours(); i++) {
+    otroCucu=otroCucu+" cucú";
+}
+
+console.log("Son las "+hora.getHours()+otroCucu);
