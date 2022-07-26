@@ -21,7 +21,7 @@ const names = [
 
 function erase(array){
   for (let i=0; i<array.length; i++){
-    console.log(array[i]);
+    //console.log(array[i]);
     let firts=array[i];
     for (let j=i+1; j<array.length; j++){
       if (firts=== array[j]){
