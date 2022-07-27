@@ -303,3 +303,4 @@ console.log(personasConFord);
 console.log("");
 console.log("7. ¡Bonus point! Obtén un array con todas las personas en el que cada persona tenga toda la info de su coche");
 let todasLasPersonas = persons.map(person => person);
+console.log(todasLasPersonas);
