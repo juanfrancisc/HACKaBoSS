@@ -22,10 +22,22 @@ let APIurl = "https://anapioficeandfire.com/api/houses/"
 
 //Obetner los datos de una URL y pasar a JSON
 async function getData(url){
+    //Hacemos un try por si la url de ataque no funciona o no existe
+    try{
+
+    // Obtenemos la repuesta con un fetch a la URL
     let res = await fetch(url)
+
+    //Obtenemos los datos de la respuesta y los pasamos con JSON, 
+    //para que sean legibles
     let data = await res.json()
 
     return data
+
+    }catch (e){
+        throw new Error ("El servidor no responde o página no encontrada")
+        //console.error(e.message)
+    }
 }
 
 
@@ -39,10 +51,6 @@ async function getDataHouse(num){
         let unionURL = APIurl+num
         console.log("Url de union")
         console.log(unionURL)
-
-        if (unionURL === 404){
-            throw new Error ("Error en la URL")
-        }
 
         console.log("")
         
@@ -69,8 +77,8 @@ async function getDataHouse(num){
         console.log("Obtener nombre del Lord")
         console.log (urlLord.name)
 
-    } catch (error) {
-        console.error(error.message)
+    } catch (e) {
+        console.error(e.message)
     }
     return num;
 }
