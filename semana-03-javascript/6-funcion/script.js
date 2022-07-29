@@ -2,7 +2,7 @@
 
 function adivinar(){
     let pass = Math.floor(Math.random() * 100+1);
-    //console.log(pass);
+    console.log(pass);
 
     //let numUser=15
     const numUser = +prompt("Introduce un número del 0 al 100");
@@ -19,7 +19,7 @@ function adivinar(){
             comprobar = +prompt("El número instroducido es MAYOR, introduce uno nuevo");
             intentos ++;
             console.log(intentos);
-        }    else if (pass > comprobar){
+        }else if (pass > comprobar){
             comprobar = +prompt("El número instroducido es MENOR, introduce uno nuevo");
             intentos++;
             console.log(intentos);
@@ -35,6 +35,7 @@ function adivinar(){
     }
 
     console.log(resultado);
+    alert(resultado)
 }
 
 adivinar();

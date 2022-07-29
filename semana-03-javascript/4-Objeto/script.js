@@ -15,7 +15,11 @@ const people = {
 function esMayor(objeto){
   for (let key in objeto) {
     //console.log(key, objeto[key]);
+    //Utilizando un ternario
     objeto[key] >= 18 ? console.log(key + " es mayor de edad") : console.log(key + " es menor de edad");
+  
+    //Utilizando String Templates
+    objeto[key] >= 18 ? console.log(`${key} es mayor de edad`) : console.log(`${key} es menor de edad`);
   }
 }
 

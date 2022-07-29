@@ -7,6 +7,7 @@ let resultado;
 
 if (edad <= 12){
     resultado = "A "+ nombre + " le corresponde el descuento infantil (menores de 12)";
+//Se podria haber utilizado directamente <=30 l haber declarado primero el <=12
 } else if (edad >12 && edad <=30){
     resultado = "A "+ nombre + " le corresponde el descuento juvenil (menores de 30)";
 } else if (edad>60){
@@ -36,6 +37,29 @@ switch (edad){
     default:
         resultado = "A "+ nombre + " no le corresponde ningún descuento ";
         break; 
+}
+
+console.log(resultado);
+
+
+//Utilizando una funcion
+
+console.log("");
+console.log("Utilizando una Funcion");
+
+function crearFrase(descuento, nombre){
+    return `A ${nombre} le corresponde el descuento ${descuento}`
+}
+
+if (edad <= 12){
+    resultado = crearFrase("infantil", nombre)
+//Se podria haber utilizado directamente <=30 l haber declarado primero el <=12
+} else if (edad <=30){
+    resultado = crearFrase("juvenil", nombre)
+} else if (edad>60){
+    resultado = crearFrase("jubilados", nombre)
+} else {
+    resultado = "A "+ nombre + " no le corresponde ningún descuento ";
 }
 
 console.log(resultado);
