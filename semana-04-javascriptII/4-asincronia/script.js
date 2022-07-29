@@ -8,34 +8,18 @@ const agePromise = new Promise((resolve, reject) => setTimeout(() => resolve(Mat
 
 console.log(agePromise)
 
-/*
-const comprobarAge = new Promise((resolve, reject) => {
-    if (agePromise >= 18){
-        resolve (
-            if (agePromise%2 === 0){
-                console.log("HOla")
-            }
-        )
-    }
-    else if (agePromise < 18) {
-        reject("Menor de edad");
-        }
-});
-
-console.log(comprobarAge)
-
-comprobarAge(agePromise).then(result) => { }
-*/
-
-function comprobarAge(num){
+async function comprobarAge(num){
+    let age = await num
     return new Promise ((resolve, reject) =>{
-        if(num<18){
+        if(age<18){
             reject ("Menor de edad")
         } else{
-            if (num % 2 === 0){
-                resolve ("Es par")
+            if (age % 2 === 0){
+                //resolve("Es par")
+                setTimeout(()=> resolve("Es par"), 1000)
             }else{
-                resolve ("Es impar")
+                //resolve ("Es impar")
+                setTimeout(()=> resolve("Es impar"), 1000)
             }
         }
     })
