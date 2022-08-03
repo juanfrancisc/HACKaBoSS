@@ -76,11 +76,12 @@ function sumarAOtroArray(array){
     posicionMin = arrayPuntos.indexOf(menor)
     //console.log(posicionMin)
   }
-  console.log("La mayor puntuacion es: "+ mayor+" y que corresponde al equipo: "+array[posicionMax].equipo)
-  console.log("La menor puntuacion es: "+ menor+" y que corresponde al equipo: "+array[posicionMin].equipo)
+  console.log(`La mayor puntuacion es de ${mayor} y corresponde al equipo ${array[posicionMax].equipo}`)
+  console.log(`La mayor puntuacion es de ${menor} y corresponde al equipo ${array[posicionMin].equipo}`)
 }
 
-console.log (sumarAOtroArray(puntuaciones))
+//console.log (sumarAOtroArray(puntuaciones))
+sumarAOtroArray(puntuaciones)
 
 //Funcion para sumar los puntos
 function reduceCB(acc, current){
@@ -88,3 +89,21 @@ function reduceCB(acc, current){
 }
 
 
+
+//Relizado por ZOE
+console.log("")
+
+//Creamos un nuevo array con map con la mismo tamaño que el original
+function mapper(obj){
+  let {equipo, puntos} = equipo, puntos
+
+  return {}
+}
+
+function getGanadorPerdedor (array){
+  console.log(array)  
+
+}
+
+
+getGanadorPerdedor(puntuaciones)

@@ -9,6 +9,7 @@ const agePromise = new Promise((resolve, reject) => setTimeout(() => resolve(Mat
 console.log(agePromise)
 
 async function comprobarAge(num){
+    //console.log(num)
     let age = await num
     return new Promise ((resolve, reject) =>{
         if(age<18){
@@ -23,6 +24,10 @@ async function comprobarAge(num){
             }
         }
     })
+    return new Promise
 }
 
 console.log(comprobarAge(agePromise))
+
+
+agePromise.then(edad => comprobarAge(edad))
