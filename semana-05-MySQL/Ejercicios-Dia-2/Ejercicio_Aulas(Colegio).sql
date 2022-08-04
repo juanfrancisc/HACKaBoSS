@@ -26,7 +26,9 @@ create table if not exists asignatura(
     nombre varchar(30) not null,
     num_horas int unsigned not null,
     idProfesor int unsigned not null,
-    foreign key (idProfesor) references profesor (id) on delete no action
+    foreign key (idProfesor) references profesor (id) 
+    on update cascade
+    on delete no action
 );
 
 create table if not exists alumno_cursa_asignatura (
@@ -45,6 +47,9 @@ values('Juan','andaluz', 'andaluz', '23111222L'),
 ('Pepe', 'Cabrera' , 'Rojo', '74898898P'),
 ('Dolores', 'Fuertes', 'Barriga', '89456123Y'),
 ('Ana', 'Martin', 'Martin', '45789654T');
+
+-- Mostramos los datos insertados
+select * from alumno;
 
 -- Insertar 2 profesores (uno imparte 2 asignaturas y el otro la restante)
 -- (Creamos primero los profesores)
