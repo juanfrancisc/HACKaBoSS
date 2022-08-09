@@ -86,16 +86,16 @@ select * from equipo where categoria ='primera';
 update partido set incidencia ='Ha sido un partido tranquilo' where incidencia is null;
 
 -- Selecciona todos los datos de los jugadores y los equipos en los que juegan, ordenalos por el nombre del equipo.
-select * from jugador j
-inner join equipo e
+select * 
+from jugador j inner join equipo e
 	on (j.idEquipo = e.id)
 order by e.nombre ASC;
 
 -- Muestra el nombre del equipo local, fecha del partido y nombre del equipo visitante.
 -- select * from equipo_juega_partido;
 
-select ejp.idEquipoLocal,el.nombre, ejp.fecha_partido, ejp.idEquipoVisitante,ev.nombre from equipo_juega_partido ejp
-inner join equipo el
+select ejp.idEquipoLocal,el.nombre, ejp.fecha_partido, ejp.idEquipoVisitante,ev.nombre 
+from equipo_juega_partido ejp inner join equipo el
 	on (ejp.idEquipoLocal=el.id) inner join equipo ev
     on (ejp.idEquipoVisitante=ev.id);
 

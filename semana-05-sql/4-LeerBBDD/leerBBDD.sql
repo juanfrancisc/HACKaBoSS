@@ -8,3 +8,9 @@ select count(*),d.pais from usuario u
 inner join direccion d
 	on (u.id = d.idUsuario)
 group by pais ;
+
+
+-- Tras la correccion se podria haver hecho mucho mas sencillo puesto que 
+-- esta todo en la misma tabla
+
+select count(*), pais from direccion group by pais;
