@@ -7,10 +7,48 @@ const app = express();
 // Deserializamos el body en raw para leer los datos
 app.use(express.json());
 
+
+//////////////////////
+
+/** CONTROLADORES */
+// Para comprobar que las consultas de destructuring llegan
+// Hay que ejecutar el server.js (npm run dev)
+/** De productos */
+const getProducts = require('./controllers/products/getProducts');
+
+
+/** De Usuario */
+const loginUser = require('./controllers/users/loginUser');
+const newUser = require('./controllers/users/newUsers');
+const getUser = require('./controllers/users/getUser');
+
+/////////////////////
+
 /** ENDPOINT */
+// Los obtenemos llamando a los controladores (controllers)
+
+/** Lista de todos los productos */
+app.get('/products',getProducts);
 
 
-/** Fin  */
+
+
+/** Enpoints de Usuarios */
+// Registrar nuevos usuarios
+app.post('/register', newUser);
+
+
+// Login de usuario
+app.post('/login', loginUser)
+
+// Recuperar datos de un usuario
+app.get('/users/:idUser', getUser); //idUser es un pathParm, parametro de ruta
+
+/** Fin  Usuario*/
+
+
+////////////////////
+
 /** MIDDLEWARE */
 
 // Middleware de ERROR
