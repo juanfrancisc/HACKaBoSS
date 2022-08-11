@@ -32,7 +32,7 @@ const loginUser = async (req, res, next) =>{
             throw generateError('Faltan campos obligatorios', 400);
         }
 
-        // Comprobamos que exste un usaurio con ese email
+        // Comprobamos que exste un usuario con ese email
         const [user] = await connection.query(
             `SELECT id, email, password FROM user WHERE email=?`,[email]
             );
