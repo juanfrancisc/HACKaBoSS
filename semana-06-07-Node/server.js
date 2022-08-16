@@ -31,17 +31,19 @@ app.use(express.json());
 const newUser = require('./controllers/users/newUser');
 const getLogin = require('./controllers/users/getLogin');
 const getUser = require('./controllers/users/getUser');
-const putUser = require('./controllers/users/putUser');
+//const putUser = require('./controllers/users/putUser');
 
+/** Middleware de usuario para comprobar si puede editar y modificar */
+const isAuth = require('./middleware/isAuth');
+const canEditUser = require('./middleware/canEditUser');
+const modifyUser = require('./controllers/users/modifyUser');
+
+/** Para crear un usuario Administrador */
 const newAdmin = require('./controllers/users/newAdmin');
 
 // De Experiencias
 const getExperiencias = require('./controllers/experiencias/getExeriencias');
 const getPrecio = require('./controllers/experiencias/getPrecio');
-
-
-
-
 
 //////////////////////////
 /** ENDPOINTS */
@@ -50,16 +52,18 @@ const getPrecio = require('./controllers/experiencias/getPrecio');
 app.post('/register', newUser);
 app.post('/login', getLogin);
 app.get('/user/:idUser', getUser);
-app.put('/user/:idUser',putUser);
+
+//app.put('/user/:idUser',putUser);
+app.put('/user/:idUser', isAuth, canEditUser, modifyUser)
 
 app.get('/register/admin', newAdmin)
 
 
 //Experiencias
-//app.get('/experiencias', getExperiencias)
-//app.get('/experiencias/:idExperiencias', getExperiencias)
+app.get('/experiencias', getExperiencias)
+app.get('/experiencias/:idExperiencias', getExperiencias)
 
-app.get('/experiencias', getPrecio)
+//app.get('/experiencias', getPrecio)
 
 
 
