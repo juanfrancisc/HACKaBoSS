@@ -37,6 +37,7 @@ const newAdmin = require('./controllers/users/newAdmin');
 
 // De Experiencias
 const getExperiencias = require('./controllers/experiencias/getExeriencias');
+const getPrecio = require('./controllers/experiencias/getPrecio');
 
 
 
@@ -55,8 +56,10 @@ app.get('/register/admin', newAdmin)
 
 
 //Experiencias
-app.get('/experiencias', getExperiencias)
-app.get('/experiencias/:idExperiencias', getExperiencias)
+//app.get('/experiencias', getExperiencias)
+//app.get('/experiencias/:idExperiencias', getExperiencias)
+
+app.get('/experiencias', getPrecio)
 
 
 

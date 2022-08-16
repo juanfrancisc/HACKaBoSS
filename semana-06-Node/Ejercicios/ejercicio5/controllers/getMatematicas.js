@@ -12,9 +12,14 @@ const getMatematicas = async (req, res, next) =>{
 
             throw generateError ('No es un numero', 400);
         }
-        const resultado = number*2
+        const resultado = number * 2;
         res.send({
             resultado
+
+            /** Correccion 
+             * status: 'OK',
+             * message: `${number} * 2 = ${number * 2}`,
+              */
         });
 
     } catch (error) {

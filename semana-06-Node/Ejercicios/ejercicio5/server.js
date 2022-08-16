@@ -6,7 +6,7 @@ const express = require('express');
 // Creamos la aplicacion/servidor con express
 const app = express();
 
-// Realizamos el destructuring
+// Deserializamos el body
 app.use(express.json());
 
 // Importar funciones
@@ -17,6 +17,7 @@ const getDirectory = require('./controllers/getDirectory');
 const getMatematicas = require('./controllers/getMatematicas');
 
 const newUser = require('./controllers/newUser');
+
 const { generateError } = require('./helpers');
 
 
@@ -52,6 +53,13 @@ app.use((error, req, res, next) => {
 
     //res.send(generateError('Error', 500));
 
+    /** Correccion Cesar
+    console.error(error);
+    res.status(error.httpSatatus || 500).send({
+        status: 'Error',
+        message: error.message;
+    }); */
+
 });
 
 // Middleware de NOT FOUND - No encuentra la ruta
@@ -62,7 +70,12 @@ app.use((req,res) => {
         message: 'Not found',
     })
 
-    //res.send(generateError('Not found', 404));
+    /** Correccion Cesar 
+     * res.status(error.httpSatatus || 404).send({
+     * status: 'Error',
+     * message: error.message;
+     * }); 
+    */
 });
 
 // Ponemos el servidor a la escucha, AL FINAL DEL SCRIPT SIEMPRE

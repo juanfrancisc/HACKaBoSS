@@ -10,3 +10,9 @@ function generateError(message, code){
 module.exports = {
     generateError,
 };
+
+
+/** Correccion Cesar
+ * Al exportar solo una funcion no es necesario hacerelo con llaves
+ * module.exports = generateError;
+ */

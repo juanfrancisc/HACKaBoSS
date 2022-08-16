@@ -20,6 +20,11 @@ const newUser = async (req, res, next) => {
             status: 'OK',
             email,
             password
+
+
+            /** Correccion
+             * message: `Usuario recibido con email: ${email} y contraseña ${password}
+             */
         });
 
     } catch (error) {
