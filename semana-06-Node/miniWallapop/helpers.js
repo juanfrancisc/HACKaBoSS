@@ -87,10 +87,23 @@ async function savePhoto (imagen, type){
 
 }
 
+// Funcion para validar el schema (Joi)
+async function validate (schema, data) {
+
+    try {
+        await schema.validateAsynv(data)
+
+    } catch (error) {
+        error.httpStatus = 400;
+        throw error;
+    }
+}
+
 
 // Para exportar la funcion, entre {} por que exportamos mas de una
 module.exports = {
     generateError,
     deletePhoto,
     savePhoto,
+    validate,
 };

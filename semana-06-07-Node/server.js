@@ -4,10 +4,14 @@
 // Instalamos mysql (npmi mysql2) para acceso a base de datos
 // Instalamos dotenv (npm i dotenv) para la creacion de variables globales
 // Copiamos .eslintrc.json y .prettierrc desde otro proyecto
-// Crear .gitignore para añadir los ficheros o carpetas que np queremos subir a github
+// Crear .gitignore para añadir los ficheros o carpetas que no queremos subir a github
 // Instalamos npm i nodemon -D para que el server reinicie de forma automatica cada vez 
-//que se produca un cambio sus ficheros
+// que se produca un cambio sus ficheros
 
+/** Se puede instalar de una sola vez:
+ * npm i eslint prettier nodemon -D
+ * npm i express mysql2 dotenv
+ */
 
 /** Para el ejercicio 2 :*/
 // Instalamos el bcrypt (npm i bcrypt) para encriptar la contraseña
@@ -69,7 +73,7 @@ app.get('/experiencias/:idExperiencias', getExperiencias)
 
 ////////////////////
 
-/** MIDDLEWARE */
+/** MIDDLEWARE de ERROR y NOT FOUND*/
 
 // Middleware de ERROR
 app.use((error, req, res, next) => {
@@ -106,4 +110,3 @@ app.use((req,res) => {
 app.listen(4000, () => {
     console.log('Server listening at http://localhost:4000');
 });
-

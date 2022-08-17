@@ -28,33 +28,46 @@ app.use(fileUpload());
 // Para comprobar que las consultas de destructuring llegan
 // Hay que ejecutar el server.js (npm run dev)
 /** De productos */
+const newProduct = require('./controllers/products/newProduct.js');
 const getProducts = require('./controllers/products/getProducts');
+const addProductPhoto = require('./controllers/products/addProductPhoto');
 
 
 /** De Usuario */
 const loginUser = require('./controllers/users/loginUser');
 const newUser = require('./controllers/users/newUsers');
 const getUser = require('./controllers/users/getUser');
-const isAuth = require('./middlewares/isAuth');
-const modifyUser = require('./controllers/users/modifyUser');
-const canEditUser = require('./middlewares/canEditUser');
-const { application } = require('express');
 const editUserAvatar = require('./controllers/users/editUserAvatar');
+const editUserPassword = require('./controllers/users/editUserPassword');
+const deleteUser = require('./controllers/users/deleteUser');
+const modifyUser = require('./controllers/users/modifyUser');
+//const { application } = require('express');
 
 
 /////////////////////
 
 
 /** MIDDLEWARES de USUARIO */
+const isAuth = require('./middlewares/isAuth');
+const canEditUser = require('./middlewares/canEditUser');
+
+/** MIDDLEWARE de PRODUCTO */
+const canEditProduct = require('./middlewares/canEditProducts');
 
 
 /** ENDPOINT */
 // Los obtenemos llamando a los controladores (controllers)
 
-/** Lista de todos los productos */
+/** ENDPOINTS de PRODUCTOS */
+
+// Nuevo producto
+app.post('/products/new', isAuth, newProduct)
+
+// Añadir foto de producto
+app.put('/products/:idProducts/photo', isAuth, canEditProduct, addProductPhoto)
+
+// Lista de todos los productos 
 app.get('/products',getProducts);
-
-
 
 
 /** Enpoints de Usuarios */
@@ -68,11 +81,16 @@ app.post('/login', loginUser)
 // Recuperar datos de un usuario
 app.get('/users/:idUser', getUser); //idUser es un pathParm, parametro de ruta
 
-//Modificar user e email del usuario
+//Modificar username e email del usuario
 app.put('/users/:idUser', isAuth, canEditUser, modifyUser)
 
 // Modificar el avatar
 app.put('/users/:idUser/avatar', isAuth, canEditUser, editUserAvatar)
+
+// Modificar la password del usuario
+app.put('/users/:idUser/password', isAuth, canEditUser, editUserPassword)
+
+app.delete('/users/:idUser', isAuth, canEditUser, deleteUser)
 
 /** Fin  Usuario*/
 

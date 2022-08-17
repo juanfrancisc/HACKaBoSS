@@ -44,6 +44,23 @@ async function main(){
                 )
         `);
 
+        /** Podemos crear una tabla que contenga avatar de usuario tal que:
+         * await connection.query(`
+            CREATE TABLE IF NOT EXISTS usuario (
+                id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+                nombre VARCHAR(50) NOT NULL,
+                apellido1 VARCHAR(50) NOT NULL,
+                apellido2 VARCHAR(50),
+                fecha_nac DATE,
+                email VARCHAR(200) NOT NULL UNIQUE,
+                password VARCHAR(255) NOT NULL,
+                avatar VARCHAR(255),
+                tipo ENUM('normal', 'admin') DEFAULT 'normal,
+                createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+        `);
+         */
+
         await connection.query(
             `CREATE TABLE IF NOT EXISTS empresa (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -59,7 +76,7 @@ async function main(){
                 descripcion TEXT,
                 localizacion VARCHAR(100) NOT NULL,
                 idEmpresaOrganiza INT UNSIGNED,
-                FOREIGN KEY (idEmpresaOrganiza) REFERENCES empresa(id))`
+                FOREIGN KEY (idEmpresaOrganiza) REFERENCES empresa (id))`
         );
 
         console.log('Tablas creadas!');

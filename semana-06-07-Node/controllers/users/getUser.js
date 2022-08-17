@@ -3,7 +3,7 @@
 
 // Requerimos getDB
 const getDB = require('../../database/getDB');
-const { generateError } = require('../../helpers');
+const { generateError, selectIdUser } = require('../../helpers');
 
 const getUser = async (req, res, next) => {
     //Abrir conexion    
@@ -20,6 +20,10 @@ const getUser = async (req, res, next) => {
         const [usuario] = await connection.query(
             `SELECT * FROM usuario WHERE id = ?`, [idUser]
         );
+
+        //Pruebas de cracion de una funcion select
+        //selectIdUser(idUser);
+
 
         //Comprobar que existe el usuario con ese id
         if (usuario.length < 1 ){
