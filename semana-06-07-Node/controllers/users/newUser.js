@@ -5,6 +5,7 @@ const getDB = require('../../database/getDB');
 
 // Requerimos la dependenia bcrypt para poder encriptar la contraseña
 const bcrypt = require('bcrypt');
+
 const { generateError } = require('../../helpers');
 
 const newUser = async (req, res, next) => {
@@ -19,7 +20,7 @@ const newUser = async (req, res, next) => {
 
         console.log(email);
 
-        if ( !nombre || !email || !password ){
+        if ( !nombre || !apellido1 || !email || !password ){
             //Si alguno no existe devolvemos un error
             throw generateError('Faltan campos obligatorios', 400);
         } 
@@ -38,9 +39,11 @@ const newUser = async (req, res, next) => {
         // Encriptar la contraseña -> Para ello necesitamos la dependencia bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        await connection.query(`INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password)
-        VALUES (?,?,?,?,?,?)`,
-        [nombre, apellido1, apellido2, fecha_nac, email, hashedPassword]);
+        await connection.query(
+            `INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password)
+            VALUES (?, ?, ?, ?, ?, ?)`,
+            [nombre, apellido1, apellido2, fecha_nac, email, hashedPassword]
+            );
         
 
         //Enviar respuesta al servidor conforme todo ha ido bien

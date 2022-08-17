@@ -38,15 +38,17 @@ const newAdmin = async (req, res, next) => {
         // Encriptar la contraseña -> Para ello necesitamos la dependencia bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
         const tipo='admin';
-        await connection.query(`INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password, tipo)
-        VALUES (?,?,?,?,?,?,?)`,
-        [nombre, apellido1, apellido2, fecha_nac, email, hashedPassword, tipo]);
+        await connection.query(
+            `INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password, tipo)
+            VALUES (?,?,?,?,?,?,?)`,
+            [nombre, apellido1, apellido2, fecha_nac, email, hashedPassword, tipo]
+            );
         
 
         //Enviar respuesta al servidor conforme todo ha ido bien
         res.send({
             status: 'OK',
-            message: 'Usuario creado con éxito',
+            message: 'Usuario tipo admin creado con éxito',
         });
 
     } catch (error) {

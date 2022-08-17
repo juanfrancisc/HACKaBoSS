@@ -30,6 +30,7 @@ async function main(){
         // Crear las tablas de la base de datos
         console.log('Creando tablas...');
 
+        //En los campos tipo ENUM, el primer valor que se declara es el que se posiciona como por defecto
         await connection.query(`
             CREATE TABLE IF NOT EXISTS usuario (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,

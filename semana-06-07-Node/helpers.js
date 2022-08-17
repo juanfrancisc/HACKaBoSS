@@ -1,6 +1,6 @@
 // Archivo de ayuda donde crearemos funciones que utilizaremos en mas de un archivo
 
-const getDB = require("./database/getDB");
+//const getDB = require("./database/getDB");
 
 // Funcion de error
 function generateError(message, code){
