@@ -31,6 +31,9 @@ app.use(fileUpload());
 const newProduct = require('./controllers/products/newProduct.js');
 const getProducts = require('./controllers/products/getProducts');
 const addProductPhoto = require('./controllers/products/addProductPhoto');
+const editProduct = require('./controllers/products/editProduct.js');
+const deleteProduct = require('./controllers/products/deleteProduct.js');
+const soldProduct = require('./controllers/products/soldProduct.js');
 
 
 /** De Usuario */
@@ -64,10 +67,19 @@ const canEditProduct = require('./middlewares/canEditProducts');
 app.post('/products/new', isAuth, newProduct)
 
 // Añadir foto de producto
-app.put('/products/:idProducts/photo', isAuth, canEditProduct, addProductPhoto)
+app.put('/products/:idProduct/photo', isAuth, canEditProduct, addProductPhoto)
 
 // Lista de todos los productos 
 app.get('/products',getProducts);
+
+//Editar datos de un producto
+app.put('/products/:idProduct', isAuth, canEditProduct, editProduct)
+
+//El propietario marca su producto como vendido
+app.put('/products/:idProduct/sold', isAuth, canEditProduct, soldProduct)
+
+//Eliminar un producto
+app.delete('/products/:idProduct', isAuth, canEditProduct, deleteProduct)
 
 
 /** Enpoints de Usuarios */

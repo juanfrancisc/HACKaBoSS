@@ -5,17 +5,17 @@ const getDB = require('../../database/getDB');
 const { generateError } = require('../../helpers');
 
 const getPrecio = async (req, res, next) => {
-    let connection;
+    let conexion;
 
     try {
-        connection = await getDB();
+        conexion = await getDB();
 
         const { precio } = req.query;
 
         console.log(precio); 
 
         if ( precio ){
-            const [experiencias] = await connection.query(
+            const [experiencias] = await conexion.query(
                 `SELECT * FROM experiencia WHERE precio >= ?`[precio]
             );
 
@@ -30,7 +30,7 @@ const getPrecio = async (req, res, next) => {
         next(error)
         
     } finally {
-        if (connection) connection.release();
+        if (conexion) conexion.release();
     }
 
 };

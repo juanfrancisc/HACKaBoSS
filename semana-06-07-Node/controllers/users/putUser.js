@@ -5,11 +5,11 @@ const getDB = require('../../database/getDB');
 const { generateError } = require('../../helpers');
 
 const putUser = async (req, res, next) => {
-    let connection;
+    let conexion;
 
     try {
         // Abrimos la conexion a BD
-        connection = await getDB();
+        conexion = await getDB();
 
         //Recuperamos el idUser desde el pathParam
         const { idUser } = req.params;
@@ -17,7 +17,7 @@ const putUser = async (req, res, next) => {
         // Recuperamos los datos desde el body
         const { nombre, apellido1, apellido2 } = req.body;
 
-        const [usuario] = await connection.query(
+        const [usuario] = await conexion.query(
             `SELECT * FROM usuario WHERE id=?`, [idUser]
         );
 
@@ -26,7 +26,7 @@ const putUser = async (req, res, next) => {
         }
 
 
-        await connection.query(
+        await conexion.query(
             `UPDATE usuario SET nombre = ? , apellido1 = ? , apellido2 = ? WHERE id=?`,[nombre, apellido1, apellido2, idUser]
         );
 
@@ -38,7 +38,7 @@ const putUser = async (req, res, next) => {
         next(error)
 
     } finally {
-        if(connection) connection.release();
+        if(conexion) conexion.release();
     }
 };
 

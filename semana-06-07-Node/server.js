@@ -18,7 +18,6 @@
 // Instalamos el jsonwebtoken (npm i jsonwebtoken) para obtener el token de sesion
 
 
-
 /** Configuracion del fichero server.js */
 // Requerimos el express
 const express = require('express');
@@ -29,6 +28,15 @@ const app = express();
 // Deserializamos el body en raw para leer los datos
 app.use(express.json());
 
+
+//////////////////
+/** MIDDLEWARE */
+//De usuario
+const isAuth = require('./middleware/isAuth');
+const canEditUser = require('./middleware/canEditUser');
+const isAdmin = require('./middleware/isAdmin');
+
+
 /////////////////////////
 /** CONTROLADORES */
 // De usuario
@@ -36,43 +44,49 @@ const newUser = require('./controllers/users/newUser');
 const getLogin = require('./controllers/users/getLogin');
 const getUser = require('./controllers/users/getUser');
 //const putUser = require('./controllers/users/putUser');
-
-/** Middleware de usuario para comprobar si puede editar y modificar */
-const isAuth = require('./middleware/isAuth');
-const canEditUser = require('./middleware/canEditUser');
 const modifyUser = require('./controllers/users/modifyUser');
 
-/** Para crear un usuario Administrador */
+// Para crear un usuario Administrador
 const newAdmin = require('./controllers/users/newAdmin');
 
+
 // De Experiencias
-const getExperiencias = require('./controllers/experiencias/getExeriencias');
-const getPrecio = require('./controllers/experiencias/getPrecio');
+const getExperiencias = require('./controllers/experiencias/getExperiencias');
+const getPrecio = require('./controllers/experiencias/getPrecio'); //Pruebas
+const deleteExperiences = require('./controllers/experiencias/deleteExperiences');
+const getExperiences = require('./controllers/experiencias/getExperiences');
+
+// De Empresa
+const newCompany = require('./controllers/empresa/newCompany');
+const deleteCompany = require('./controllers/empresa/deleteCompany');
 
 //////////////////////////
 /** ENDPOINTS */
 
-//Usuario
+//De Usuario
 app.post('/register', newUser);
 app.post('/login', getLogin);
 app.get('/user/:idUser', getUser);
-
-//app.put('/user/:idUser',putUser);
 app.put('/user/:idUser', isAuth, canEditUser, modifyUser)
-
-app.get('/register/admin', newAdmin)
-
-
-//Experiencias
-app.get('/experiencias', getExperiencias)
-app.get('/experiencias/:idExperiencias', getExperiencias)
-
-//app.get('/experiencias', getPrecio)
+app.get('/register/admin', newAdmin);
+//app.put('/user/:idUser',putUser); //Pruebas
 
 
 
-////////////////////
+//De Experiencias
+app.get('/experiencias', getExperiencias); //Ampliacion del ejercicio 2
+app.get('/experiencias/:idExperiencias', getExperiencias); //Ampliacion del ejercicio 2
+app.get('/experiences', getExperiences);
+app.delete('/experiences/:idExperience', isAuth, isAdmin, deleteExperiences);
+//app.get('/experiencias', getPrecio) //Pruebas
 
+
+//De Empresa
+app.post('/company', newCompany)
+app.delete('/company/:idCompany', isAuth, isAdmin, deleteCompany)
+
+
+/////////////////////////////////////
 /** MIDDLEWARE de ERROR y NOT FOUND*/
 
 // Middleware de ERROR
@@ -105,7 +119,6 @@ app.use((req,res) => {
 /** FIN  MIDDLEWARE*/
 
 /** SERVIDOR A LA ESCUCHA */
-
 // Ponemos el server a la escucha
 app.listen(4000, () => {
     console.log('Server listening at http://localhost:4000');

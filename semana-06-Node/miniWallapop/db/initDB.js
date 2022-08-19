@@ -51,6 +51,7 @@ async function main(){
                 name VARCHAR(50) NOT NULL,
                 precio DECIMAL(8,2) NOT NULL,
                 descripcion TEXT,
+                sold BOOLEAN DEFAULT false,
                 createdAt DATETIME,
                 idUser INT UNSIGNED NOT NULL,
                 FOREIGN KEY (idUser) REFERENCES user(id)

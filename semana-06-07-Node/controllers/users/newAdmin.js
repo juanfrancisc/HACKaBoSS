@@ -9,11 +9,11 @@ const bcrypt = require('bcrypt');
 const { generateError } = require('../../helpers');
 
 const newAdmin = async (req, res, next) => {
-    let connection;
+    let conexion;
     
     try {
         // Abrir la conexion a base de datos
-        connection = await getDB();
+        conexion = await getDB();
 
         // Recuperar los datos que indique el usuario
         const { nombre, apellido1, apellido2, fecha_nac, email, password } = req.body;
@@ -25,7 +25,7 @@ const newAdmin = async (req, res, next) => {
         } 
 
         //Comprobamos que el usuario existe
-        const [usuario] = await connection.query(
+        const [usuario] = await conexion.query(
             `SELECT * FROM usuario WHERE email = ?`,[email]
         );
         
@@ -38,7 +38,7 @@ const newAdmin = async (req, res, next) => {
         // Encriptar la contraseña -> Para ello necesitamos la dependencia bcrypt
         const hashedPassword = await bcrypt.hash(password, 10);
         const tipo='admin';
-        await connection.query(
+        await conexion.query(
             `INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password, tipo)
             VALUES (?,?,?,?,?,?,?)`,
             [nombre, apellido1, apellido2, fecha_nac, email, hashedPassword, tipo]
@@ -57,7 +57,7 @@ const newAdmin = async (req, res, next) => {
 
     } finally {
         //Cerramos la conexion a base de datos
-        if(connection) connection.release();
+        if(conexion) conexion.release();
 
     }
 };

@@ -10,7 +10,7 @@ const canEditProduct = async (req, res, next) => {
 
         //Solamnete el propietario del producto puede modificarlo
         //id del producto
-        const { idProduct } = req.params;
+        const  { idProduct }  = req.params;
 
         //id del usuario 
         const idReqUser = req.userAuth.id;

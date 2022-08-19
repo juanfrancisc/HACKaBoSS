@@ -5,11 +5,11 @@
 const getDB = require('../../database/getDB');
 
 const getExperiencias = async (req, res, next) => {
-    let connection;
+    let conexion;
 
     try {
         //abrimos la conexion
-        connection = await getDB();
+        conexion = await getDB();
 
         const { idExperiencias } = req.params;
 
@@ -19,7 +19,7 @@ const getExperiencias = async (req, res, next) => {
             // Si no existe, listo expereriencias
             //console.log('No existe')
 
-            const [experiencia] = await connection.query(
+            const [experiencia] = await conexion.query(
                 `SELECT * FROM experiencia`
             );
 
@@ -29,7 +29,7 @@ const getExperiencias = async (req, res, next) => {
         }
 
         //Si existe idExperiencias, listo solo ese id
-        const [experiencia] = await connection.query(
+        const [experiencia] = await conexion.query(
                 `SELECT * FROM experiencia WHERE id=?`,[idExperiencias]
         );
 
@@ -43,7 +43,7 @@ const getExperiencias = async (req, res, next) => {
         next(error)
 
     } finally {
-        if(connection) connection.release();
+        if(conexion) conexion.release();
     }
 
 

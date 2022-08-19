@@ -7,7 +7,7 @@ const { generateError } = require("../helpers");
 
 const canEditUser = async (req, res, next) => {
 
-    let connection;
+    let conexion;
 
     //Recuperamos el id de usuario desde los parametros
     const { idUser } = req.params;
@@ -24,13 +24,13 @@ const canEditUser = async (req, res, next) => {
     next();
 
     try {
-        connection = await getDB();
+        conexion = await getDB();
 
     } catch (error) {
         next(error);
 
     } finally {
-        if (connection) connection.release();
+        if (conexion) conexion.release();
     }
 
 }

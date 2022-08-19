@@ -7,17 +7,17 @@ const { generateError, selectIdUser } = require('../../helpers');
 
 const getUser = async (req, res, next) => {
     //Abrir conexion    
-    let connection;
+    let conexion;
 
     try {
         // Abrimos la conexion
-        connection = await getDB();
+        conexion = await getDB();
         
         // Recuperamos el pathParan del usario que queremos
         const { idUser } = req.params;
 
         //Seleccionamos todos los datos dle usuario con el id
-        const [usuario] = await connection.query(
+        const [usuario] = await conexion.query(
             `SELECT * FROM usuario WHERE id = ?`, [idUser]
         );
 
@@ -41,7 +41,7 @@ const getUser = async (req, res, next) => {
         next(error);
     } finally {
         //Cerramos la conexion a BD
-        if (connection) connection.release();
+        if (conexion) conexion.release();
     }
     
 };

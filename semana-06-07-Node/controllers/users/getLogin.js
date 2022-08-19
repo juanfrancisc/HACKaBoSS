@@ -13,11 +13,11 @@ const { generateError } = require("../../helpers");
 require('dotenv').config();
 
 const getLogin = async (req, res, next) => {
-    let connection;
+    let conexion;
 
     try {
         // Conectamos con la BD
-        connection = await getDB();
+        conexion = await getDB();
 
         // Recuperamos desde el body
         const { email, password } = req.body;
@@ -28,7 +28,7 @@ const getLogin = async (req, res, next) => {
         }
 
         // Obtenemos los datos que necesitamos desde la BD
-        const [usuario] = await connection.query(
+        const [usuario] = await conexion.query(
             `SELECT id, email, password FROM usuario WHERE email=?`,[email]
         );
         
@@ -68,7 +68,7 @@ const getLogin = async (req, res, next) => {
         next(error);
     } finally {
         //
-        if (connection) connection.release();
+        if (conexion) conexion.release();
     }
 };
 

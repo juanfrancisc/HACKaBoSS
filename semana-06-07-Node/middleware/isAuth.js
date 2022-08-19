@@ -12,12 +12,12 @@ const jsonwebtoken = require("jsonwebtoken");
 require('dotenv').config();
 
 const isAuth = async (req, res, next) => {
-
-    let connection;
+    //console.log('funcion isAuth');
+    let conexion;
 
     try {
         //Abrimos la conexion con BD
-        connection = await getDB();
+        conexion = await getDB();
 
         //Obtenemos la cabecera de la autorizacion
         const { authorization } = req.headers;
@@ -41,7 +41,7 @@ const isAuth = async (req, res, next) => {
         }
 
         //Si el token devuelve un id, tenemos que seleccionar ese usuario con ese id en la BD
-        const [user] = await connection.query(
+        const [user] = await conexion.query(
             `SELECT id FROM usuario WHERE id = ?`, [tokenInfo.id]
         );
 
@@ -61,7 +61,7 @@ const isAuth = async (req, res, next) => {
         next(error)
 
     } finally {
-        if(connection) connection.release();
+        if(conexion) conexion.release();
     }
 
 }

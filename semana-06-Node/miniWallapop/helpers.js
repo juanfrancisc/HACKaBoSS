@@ -13,7 +13,7 @@ const uuid = require('uuid');  // Para crear un nombre de archivo unico
 const avatarsDir = path.join(__dirname, 'static/avatars');
 
 // Creamos la ruta a a carpeta productos
-const productsDir = path.join(__dirname, 'statis/products');
+const productsDir = path.join(__dirname, 'static/products');
 
 // Funcion de error
 function generateError(message, code){
@@ -80,6 +80,7 @@ async function savePhoto (imagen, type){
 
         //Retornar el nombre unico de la imagen para guardar en BD
         return imageName;
+        
 
     } catch (error) {
         throw new Error('Error al procesar la imagen');
@@ -91,7 +92,7 @@ async function savePhoto (imagen, type){
 async function validate (schema, data) {
 
     try {
-        await schema.validateAsynv(data)
+        await schema.validateAsync(data)
 
     } catch (error) {
         error.httpStatus = 400;

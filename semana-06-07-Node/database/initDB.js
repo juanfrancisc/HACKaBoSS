@@ -10,11 +10,11 @@ require('dotenv').config();
 async function main(){
 
     //Crear la variable que contine la conexion a la BBDD
-    let connection;
+    let conexion;
 
     try {
         //Abrir una conexion con a base de datos
-        connection = await getDB();
+        conexion = await getDB();
 
         //Si todo va bien tenemos la conexion con la base de datos abierta
         console.log('Conexion con base de datos realizada')
@@ -22,16 +22,16 @@ async function main(){
         // Eliminar las tablas de la base de datos si existe
         console.log('Eliminando tablas si existen...');
         
-        await connection.query(`DROP TABLE IF EXISTS experiencia`);
-        await connection.query(`DROP TABLE IF EXISTS empresa`);
-        await connection.query(`DROP TABLE IF EXISTS usuario`);
+        await conexion.query(`DROP TABLE IF EXISTS experiencia`);
+        await conexion.query(`DROP TABLE IF EXISTS empresa`);
+        await conexion.query(`DROP TABLE IF EXISTS usuario`);
 
 
         // Crear las tablas de la base de datos
         console.log('Creando tablas...');
 
         //En los campos tipo ENUM, el primer valor que se declara es el que se posiciona como por defecto
-        await connection.query(`
+        await conexion.query(`
             CREATE TABLE IF NOT EXISTS usuario (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 nombre VARCHAR(50) NOT NULL,
@@ -62,14 +62,14 @@ async function main(){
         `);
          */
 
-        await connection.query(
+        await conexion.query(
             `CREATE TABLE IF NOT EXISTS empresa (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 nombre VARCHAR(100) NOT NULL
             )`
         );
 
-        await connection.query(
+        await conexion.query(
             `CREATE TABLE IF NOT EXISTS experiencia (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 titulo VARCHAR(100) NOT NULL,
@@ -86,18 +86,18 @@ async function main(){
         console.log('Insertando datos en la base de datos...');
 
         console.log('Insertando usuario de ejemplo...');
-        await connection.query(
+        await conexion.query(
             `INSERT INTO usuario (nombre, apellido1, apellido2, fecha_nac, email, password, tipo)
             VALUES ('Pepe','Rodriguez','Loquesea', '1970-01-01', 'pepe@gmail.com', '123456', 'admin')`
         );
 
         console.log('Insertando empresas de ejemplo...');
-        await connection.query(
+        await conexion.query(
             `INSERT INTO empresa (nombre) VALUES ('AWA'),('MORALES SL')`
         );    
 
         console.log('Insertando experiencias de ejemplo...');
-        await connection.query(
+        await conexion.query(
             `INSERT INTO experiencia (titulo, precio, descripcion, localizacion, idEmpresaOrganiza)
             VALUES ('Parapente', '150.00', 'Vuelo sin motor desde las montañas de Torrenueva hacia Calahonda', 'Torrenueva', 2),
             ('Bautismo de buceo', '75.00', 'Bautismo de inmersion', 'Enbarcadero Calahonda', 2),
@@ -113,7 +113,7 @@ async function main(){
     } finally {
 
         //Siempre al final cerramos la conexion con la base de datos
-        if (connection) connection.release();
+        if (conexion) conexion.release();
 
         // Finalizamos la ejecucion de script
         process.exit();
