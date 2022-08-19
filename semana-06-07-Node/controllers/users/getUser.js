@@ -30,6 +30,24 @@ const getUser = async (req, res, next) => {
             throw generateError('No existe el usuario seleccionado', 404);
         }
 
+        /** Correccion Cesar */
+        //Crear un objeto con los datos que nos interesa de la consulta
+        /**
+         * const userInfo = {
+         *  id: user[0].id,
+         *  name: user[0].nombre,
+         *  apellido1: user[0].apellido1,
+         *  apellido2: user[0].apellido2,
+         *  email: user[0].email,
+         *  avatar: user[0].avatar,
+         * };
+         * 
+         * res.send({
+         *  status: 'OK',
+         *  data: userInfo,
+         * })
+         */
+
         // Si el usuario existe, devolvemos los datos
         res.send({
             status: 'OK',

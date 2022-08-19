@@ -1,5 +1,4 @@
 // Requerimos ls BD
-const { TokenExpiredError } = require("jsonwebtoken");
 const getDB = require("../../database/getDB");
 
 

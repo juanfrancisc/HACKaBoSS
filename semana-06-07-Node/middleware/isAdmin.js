@@ -21,6 +21,13 @@ const isAdmin = async (req, res, next) => {
             throw generateError ('El usuario indicado no es de tipo admin', 409)
         }
 
+        /** Correción Cesar */
+        /**
+         * if (tipoUser[0].tipo !== 'admin') {
+         *      throw generateError ('El usuario indicado no es de tipo admin', 409)
+         * }
+         */
+
         // Mostramos mensaje
         /*res.send({
             status: 'OK',

@@ -83,6 +83,7 @@ app.delete('/experiences/:idExperience', isAuth, isAdmin, deleteExperiences);
 
 //De Empresa
 app.post('/company', newCompany)
+/** Correccion => app.post('/company', isAuth, isAdmin, newCompany) */
 app.delete('/company/:idCompany', isAuth, isAdmin, deleteCompany)
 
 

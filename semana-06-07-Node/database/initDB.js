@@ -65,8 +65,7 @@ async function main(){
         await conexion.query(
             `CREATE TABLE IF NOT EXISTS empresa (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                nombre VARCHAR(100) NOT NULL
-            )`
+                nombre VARCHAR(100) NOT NULL)`
         );
 
         await conexion.query(
@@ -77,7 +76,8 @@ async function main(){
                 descripcion TEXT,
                 localizacion VARCHAR(100) NOT NULL,
                 idEmpresaOrganiza INT UNSIGNED,
-                FOREIGN KEY (idEmpresaOrganiza) REFERENCES empresa (id))`
+                FOREIGN KEY (idEmpresaOrganiza) REFERENCES empresa (id)
+                ON DELETE CASCADE)`
         );
 
         console.log('Tablas creadas!');

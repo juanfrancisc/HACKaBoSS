@@ -28,7 +28,7 @@ const getExperiences = async (req, res, next) => {
         if (search) {
             [listaExperiences] = await conexion.query(
                 `SELECT * FROM experiencia WHERE titulo LIKE ? OR precio LIKE ? ORDER BY ${ordenarPor} ${ordenarEn}`, 
-                [`%{search}%`, `%{search}%`]
+                [`%${search}%`, `%${search}%`]
             );
         } else {
             [listaExperiences] = await conexion.query(
