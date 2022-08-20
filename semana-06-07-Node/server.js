@@ -17,6 +17,9 @@
 // Instalamos el bcrypt (npm i bcrypt) para encriptar la contraseña
 // Instalamos el jsonwebtoken (npm i jsonwebtoken) para obtener el token de sesion
 
+/** Prueba personal de envio de correo  */
+// Instalo la dpendencia nodemailer (npm i nodemailer)
+
 
 /** Configuracion del fichero server.js */
 // Requerimos el express
@@ -36,6 +39,9 @@ const isAuth = require('./middleware/isAuth');
 const canEditUser = require('./middleware/canEditUser');
 const isAdmin = require('./middleware/isAdmin');
 
+// Para en envio de correo electronico
+
+
 
 /////////////////////////
 /** CONTROLADORES */
@@ -49,6 +55,11 @@ const modifyUser = require('./controllers/users/modifyUser');
 // Para crear un usuario Administrador
 const newAdmin = require('./controllers/users/newAdmin');
 
+// Pruebas de envio de correo y restablecimiento de contraseña
+const postMail = require('./controllers/users/postMail');
+const retrievePass = require('./controllers/users/retrievePass');
+
+
 
 // De Experiencias
 const getExperiencias = require('./controllers/experiencias/getExperiencias');
@@ -60,6 +71,8 @@ const getExperiences = require('./controllers/experiencias/getExperiences');
 const newCompany = require('./controllers/empresa/newCompany');
 const deleteCompany = require('./controllers/empresa/deleteCompany');
 
+
+
 //////////////////////////
 /** ENDPOINTS */
 
@@ -70,6 +83,8 @@ app.get('/user/:idUser', getUser);
 app.put('/user/:idUser', isAuth, canEditUser, modifyUser)
 app.get('/register/admin', newAdmin);
 //app.put('/user/:idUser',putUser); //Pruebas
+app.post('/user/sendMail', postMail) //Puebas de funcionamiento de envio de correo electronico
+app.post('/user/newpass', retrievePass)
 
 
 

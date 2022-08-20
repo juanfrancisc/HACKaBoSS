@@ -9,6 +9,17 @@ function generateError(message, code){
     return error;
 }
 
+function generateRandomPass(num){
+    const caracteres = "abcdefghijkmnlopqrstuvwxyzABCDEFGHJKMNLOPQRSTUVWXYZ0123456789";
+    let newPassword = "";
+    for (let i = 0; i < num ; i++) {
+        newPassword +=caracteres.charAt(Math.floor(Math.random()*caracteres.length)); 
+    }
+    console.log(newPassword)
+
+    return newPassword;
+}
+
 
 //Funcion para obetener datos de la tabla usuario
 /*
@@ -26,5 +37,6 @@ function selectIdUser(idUser){
 // Para exportar la funcion, entre {} por que exportamos mas de una
 module.exports = {
     generateError,
+    generateRandomPass,
     //selectIdUser,
 };

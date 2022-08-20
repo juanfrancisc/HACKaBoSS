@@ -11,7 +11,7 @@ const deleteCompany = async (req, res, next) => {
 
         const { idCompany } = req.params;
 
-        if (!idCompany){
+        if (!idCompany){n
             throw generateError('No hay parametros de id de empresa a borrar');
         }
 

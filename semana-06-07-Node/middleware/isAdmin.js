@@ -14,7 +14,7 @@ const isAdmin = async (req, res, next) => {
         const [tipoUser] = await conexion.query(
             `SELECT tipo FROM usuario WHERE id = ?`,[idReqUser]
         );
-        console.log(`SELECT tipo FROM usuario WHERE id = ?`)    
+        //console.log(`SELECT tipo FROM usuario WHERE id = ?`)    
 
 
         if (tipoUser[0].tipo === 'normal') {
