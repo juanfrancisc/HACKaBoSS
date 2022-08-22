@@ -33,12 +33,8 @@ const retrievePass = async (req, res, next) =>{
         }
 
         //Si existe ese correo, generamos una nueva contraseña, con la funcion generateRandomPass(), no funciona la funcion lo hago manunalmente aqui
-        const caracteres = "abcdefghijkmnlopqrstuvwxyzABCDEFGHJKMNLOPQRSTUVWXYZ0123456789";
-        let newPassword = "";
-        for (let i = 0; i < 20 ; i++) {
-            newPassword +=caracteres.charAt(Math.floor(Math.random()*caracteres.length)); 
-        }
-        //console.log(newPassword)
+        const newPassword = generateRandomPass();
+        //console.log=(newPassword)
 
         //Y la encrriptamos para añadirla a la BBDD
         const hashedPassword = await bcrypt.hash(newPassword, 10);

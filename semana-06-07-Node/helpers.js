@@ -9,10 +9,10 @@ function generateError(message, code){
     return error;
 }
 
-function generateRandomPass(num){
+function generateRandomPass(){
     const caracteres = "abcdefghijkmnlopqrstuvwxyzABCDEFGHJKMNLOPQRSTUVWXYZ0123456789";
     let newPassword = "";
-    for (let i = 0; i < num ; i++) {
+    for (let i = 0; i < 20 ; i++) {
         newPassword +=caracteres.charAt(Math.floor(Math.random()*caracteres.length)); 
     }
     console.log(newPassword)
