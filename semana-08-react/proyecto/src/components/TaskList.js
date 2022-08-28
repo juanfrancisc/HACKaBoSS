@@ -3,6 +3,7 @@ import Task from "./Task";
 const TaskList = (props) => {
 
     const {tasks} = props;
+    console.log(tasks)
     return (
         <ul>
             {
