@@ -2,7 +2,7 @@ import Task from "./Task";
 
 const TaskList = (props) => {
 
-    const {tasks} = props;
+    const {tasks, setTasks} = props;
     console.log(tasks)
     return (
         <ul>
@@ -11,7 +11,7 @@ const TaskList = (props) => {
                     //console.log(objTask)
                     return (
                         <li key={objTask.id}>
-                            <Task task={objTask.task} done={objTask.done} />
+                            <Task tasks={tasks} setTasks={setTasks} id={objTask.id} task={objTask.task} done={objTask.done} />
                         </li>
                         
                         
