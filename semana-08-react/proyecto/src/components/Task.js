@@ -18,12 +18,15 @@ const Task = (props) => {
         checked={done}
         onChange={(event) => {
           setDone(event.target.checked);
-          tasks.map((objTask) => {
+          const updateTasks = tasks.map((objTask) => {
             if (objTask.id === id) {
-              return { ...task, done };
+              objTask.done = !objTask.done;
             }
             return task;
-          })}}
+          })
+        
+          return (updateTasks);
+        }}
       />
     </>
   );
