@@ -4,14 +4,11 @@ import Message from "./Message";
 const NewEntryForm = (props) => {
   const { addNewEntry } = props;
 
-  // Creamos los estados para los inputs y los mensajes de error y success
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [userId, setUserId] = useState("")
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-
-
 
   return (
     <>
@@ -20,44 +17,37 @@ const NewEntryForm = (props) => {
           try {
             event.preventDefault();
 
-
-            const formData = new FormData();
-
-            formData.append("title", title);
-            formData.append("content", body);
-
             const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
                 method: "POST",
-                body: JSON.stringify({
-                title: 'foo',
-                body: 'bar',
-                userId: 1,
-              }),
+                body: JSON.stringify({title, body, userId }),
                 headers: {
                 'Content-type': 'application/json; charset=UTF-8',
               },
             });
 
-            const body = await res.json();
+            const content = await res.json();
+            //console.log(body)
 
             if (!res.ok) {
               throw new Error(body.message);
             }
 
-            addNewEntry(body);
+            addNewEntry(content);
             setSuccessMessage(body.message);
             setErrorMessage("");
             setTitle("");
             setBody("");
             setUserId("")
+
           } catch (error) {
             console.error(error.message);
             setErrorMessage(error.message);
             setSuccessMessage("");
+
           }
         }}
       >
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title">Titulo:</label>
         <input
           id="title"
           value={title}
@@ -67,7 +57,7 @@ const NewEntryForm = (props) => {
           required
         />
 
-        <label htmlFor="body">Content:</label>
+        <label htmlFor="body">Contenido:</label>
         <input
           id="body"
           value={body}

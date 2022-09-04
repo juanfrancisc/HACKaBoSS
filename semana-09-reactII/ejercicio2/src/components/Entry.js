@@ -1,10 +1,10 @@
 const Entry = (props) => {
-    const { body, title, userId } = props;
+    const { body: content, title, userId } = props;
   
     return (
       <>
         <h3>{title}</h3>
-        <p>{body}. Write for:{userId}</p>
+        <p>{content}.</p><span>Write for:{userId}</span>
       </>
     );
   };

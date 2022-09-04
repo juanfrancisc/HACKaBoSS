@@ -15,7 +15,7 @@ const useEntries = () => {
         const res = await fetch("https://jsonplaceholder.typicode.com/posts");
 
         const body = await res.json();
-        console.log(body)
+        //console.log(body)
 
         if (!res.ok) {
           throw new Error("Unexpected error fetching API. Please try again");
