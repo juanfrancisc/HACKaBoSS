@@ -5,20 +5,16 @@ import useHook from './hooks/useHook';
 
 function App() {
 
-  const [increase, setIncrease] = useState(6)
-
-  console.log(increase)
-
-  const { addIncrease, errorMessage } = useHook();
+  const { sumar, restar, contador } = useHook();
 
 
   return (
     <div className="App">
       <Contador 
-        increase={increase} 
-        setIncrease={setIncrease} 
-        addIncrease={addIncrease} 
-        errorMessage={errorMessage}/>    
+        sumar={sumar}
+        restar={restar} 
+        contador={contador} 
+       />    
     </div>
   );
 }
